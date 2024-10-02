@@ -1,0 +1,53 @@
+plugins:
+- config:
+    anonymous: null
+    hide_credentials: false
+    key_in_body: false
+    key_in_header: true
+    key_in_query: true
+    key_names:
+    - apikey
+    realm: null
+    run_on_preflight: true
+  enabled: true
+  name: key-auth
+  service: ${{ env "DECK_GATEWAY_SERVICE_NAME" }}
+  protocols:
+  - grpc
+  - grpcs
+  - http
+  - https
+  - ws
+  - wss
+- config:
+    add:
+      body: []
+      headers: []
+      querystring: []
+    append:
+      body: []
+      headers: []
+      querystring: []
+    http_method: null
+    remove:
+      body: []
+      headers:
+      - apikey
+      querystring: []
+    rename:
+      body: []
+      headers: []
+      querystring: []
+    replace:
+      body: []
+      headers: []
+      querystring: []
+      uri: null
+  enabled: true
+  name: request-transformer
+  service: ${{ env "DECK_GATEWAY_SERVICE_NAME" }}
+  protocols:
+  - grpc
+  - grpcs
+  - http
+  - https
